@@ -4,7 +4,7 @@
             <li v-for="prod in product">
                 {{ prod.description }}
                 <div v-for="image in JSON.parse(prod.images)">
-                    <img v-bind:src="'/storage/' + image" v-bind:alt="prod.title">
+                    <img style="max-height: 100px; width: auto" v-bind:src="'/storage/' + image" v-bind:alt="prod.title">
                 </div>
             </li>
         </ul>

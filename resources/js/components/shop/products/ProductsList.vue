@@ -3,7 +3,7 @@
         <ul>
             <li v-for="product in products">
                 <router-link :to="'/products/' + product.slug">
-                    <img v-bind:src="'/storage/' + product.image" alt="">
+                    <img style="max-height: 100px; width: auto" v-bind:src="'/storage/' + product.image" alt="">
                     {{ product.title }}
                 </router-link>
             </li>
