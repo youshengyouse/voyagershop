@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <ul>
             <li v-for="prod in product">
-                {{ prod.description }}
+                <span v-html="prod.description"></span>
                 <div v-for="image in JSON.parse(prod.images)">
                     <img style="max-height: 100px; width: auto" v-bind:src="'/storage/' + image" v-bind:alt="prod.title">
                 </div>
