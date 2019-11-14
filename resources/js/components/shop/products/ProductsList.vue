@@ -1,10 +1,11 @@
 <template>
     <div class="container mx-auto">
         <ul>
-            <li v-for="product in products">
+            <li v-for="product in productList">
                 <router-link :to="'/products/' + product.slug">
-                    <img style="max-height: 100px; width: auto" v-bind:src="'/storage/' + product.image" alt="">
                     {{ product.title }}
+                    {{ product.excerpt }}
+                    <img style="max-height: 100px; width: auto" v-bind:src="'/storage/' + product.image" alt="">
                 </router-link>
             </li>
         </ul>
@@ -17,15 +18,15 @@
 
         data: function() {
             return {
-                products: ''
+                productList: ''
             };
         },
 
         mounted: function() {
             axios.get('/api/products')
-                .then(response => this.products = response.data.data)
-                //.then(response => this.products = console.log(response.data.data))
-                .catch(error => this.products = [{title: 'Посты отсутсвуют!'}]);
+                .then(response => this.productList = response.data.data)
+                //.then(response => this.productList = console.log(response.data.data))
+                .catch(error => this.productList = [{title: 'Посты отсутсвуют!'}]);
         },
     }
 </script>

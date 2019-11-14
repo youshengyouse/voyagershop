@@ -18,6 +18,7 @@
 <body>
     <div id="app">
         <navbar-default></navbar-default>
+        {{--{!! menu('admin') !!}--}}
         {{--@yield('content')--}}
         <router-view></router-view>
     </div>

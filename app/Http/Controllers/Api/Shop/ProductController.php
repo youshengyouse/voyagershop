@@ -10,15 +10,15 @@ class ProductController extends Controller
 {
     public function getProductsList()
     {
-        $products = json_encode(ShopProduct::paginate(5));
+        $productList = json_encode(ShopProduct::paginate(5));
 
-        return $products;
+        return $productList;
     }
 
     public function getProductDetail($slug)
     {
-        $product = json_encode(ShopProduct::where('slug', "$slug" )->get());
+        $productDetail = json_encode(ShopProduct::where('slug', "$slug" )->get());
 
-        return $product;
+        return $productDetail;
     }
 }

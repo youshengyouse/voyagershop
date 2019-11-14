@@ -9,8 +9,15 @@
             <div class="flex items-center ml-20 hidden lg:flex">
                 <ul class="flex items-center uppercase font-bold">
                     <li><router-link to="/products">Магазин</router-link></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <!--<li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>-->
+                    <ul>
+                        <li v-for="mnu in menu">
+                            <a v-bind:href="mnu.url">
+                                {{ mnu.title }}
+                            </a>
+                        </li>
+                    </ul>
                 </ul>
             </div>
         </div>
@@ -23,14 +30,17 @@
 
         data: function() {
             return {
-                products: ''
+                products: '',
+                menu: ''
             };
         },
 
         mounted: function() {
             axios.get('/api')
-                .then(response => this.products = response.data)
-                .catch(error => this.products = [{title: 'Посты отсутсвуют!'}]);
+                //.then(response => this.menu = console.log(response.data))
+                .then(response => this.menu = response.data)
+                //.then(response => this.products = response.data)
+                //.catch(error => this.products = [{title: 'Посты отсутсвуют!'}]);
         },
     }
 </script>

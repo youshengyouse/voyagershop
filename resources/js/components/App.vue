@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto">
-        <H1>Welcome!</H1>
+        <H1>Welcome!!!</H1>
     </div>
 </template>
 
